@@ -1,0 +1,413 @@
+<!DOCTYPE html>
+<!-- 
+2022-Mar-20 code@codywohlers.ca - moved project to search.wc.ca
+2022-Mar-14 code@codywohlers.ca - initial creation.
+-->
+<html>
+<head>
+    <title>Searching Search Sites</title>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="search engines">
+    <meta name="keywords" content="search">
+    <link rel="stylesheet" href="stylesheet.css">
+    <link rel="icon" href="images/search.png">
+    <script src="script.js"></script>
+</head>
+<body>
+    <h1 id="title"><img src="images/search.png" style="vertical-align:center;"> Searching Search Sites</h1>
+    
+    <p style="font-size:80%">Search also:
+    <a href="encyclopedias">Encyclopedias</a> |
+    <a href="images">Images</a> |
+    <a href="videos">Videos</a></span>
+    </p>
+    
+    <p style="font-size:80%">Browse also:
+    <a href="https://dir.wc.ca">Internet Directory</a>
+    </p>
+    
+    <p>Use this page to find things on the internet.</p>
+
+    <form id="theform" target="_blank">
+
+	<input name="q" id="query" type="text" style="min-width: 500px;" autofocus placeholder="Search Terms">
+
+    <table>
+    <tr><td>
+		<span style="font-size: 80%;">Default</span><br> <!-- Default because it's the first submit? -->
+		<input type="submit" value="Brave" class="?q=" formaction="https://search.brave.com/search" style="font-weight: bold;">
+		<!--<input type="submit" value="StartPage" formaction="https://www.startpage.com/sp/search" formmethod="post" style="font-weight: bold;">-->
+		<br>&nbsp;
+	</td><td style="padding-left: 25px;">
+		<span style="font-size: 80%;">Other Lists</span><br>
+		<input type="submit" value="Presearch" class="?q=" formaction="https://presearch.org/results">
+		<br>&nbsp;
+	</td><td style="padding-left: 25px;">
+		<span style="font-size: 80%;">Everything</span><br>
+		<input type="button" value="⏷ All *" onclick="submitAll('list')"><br>
+		<span style="font-size: 80%; vertical-align:top;"> * Opens a lot of tabs!</span>
+	</td></tr>
+	</table>
+	
+	<table id="list" style="font-size:80%;">
+	<tr>
+		<td><img src="http://www.alexandria.org/favicon.ico" height=20></td>
+		<td><input type="submit" value="Alexandria" class="?q=" formaction="https://www.alexandria.org"></td>
+		<td class="flag"><span title="Sweden">🇸🇪</span></td>
+		<td><a href="https://www.alexandria.org">alexandria.org</a></td>
+		<td>➡commoncrawl</td>
+	</tr>
+	<tr>
+		<td><img src="http://www.ask.com/favicon.ico" height=20></td>
+		<td><input type="submit" value="Ask" class="?q=" formaction="https://www.ask.com/web"></td>
+		<td class="flag"><span title="United States">🇺🇸</span></td>
+		<td><a href="https://www.ask.com">ask.com</a></td>
+		<td>➡google</td>
+	</tr>
+	<tr>
+		<td><img src="http://www.artadosearch.com/images/favicon.ico" height=20></td>
+		<td><input type="button" value="Artado" class="?i=" onclick="submitThis(this)" formaction="https://www.artadosearch.com/search" style="font-weight: bold;"></td>
+		<td class="flag"><span title="Turkey">🇹🇷</span></td>
+		<td><a href="https://www.artadosearch.com">artadosearch.com</a></td>
+		<td><span style="font-weight:bold;">index</span>, meta</td>
+	</tr>
+	<tr>
+		<td><img src="http://www.baidu.com/favicon.ico" height=20></td>
+		<td><input type="button" value="Baidu" class="?wd=" onclick="submitThis(this)" formaction="https://www.baidu.com/s" style="font-weight: bold;"></td>
+		<td class="flag"><span title="China">🇨🇳</span></td>
+		<td><a href="https://www.baidu.com">baidu.com</a></td>
+		<td><span style="font-weight:bold;">index</span></td>
+	</tr>
+	<tr>
+		<td><img src="http://www.bing.com/favicon.ico" height=20></td>
+		<td><input type="submit" value="Bing" class="?q=" formaction="https://www.bing.com/search" style="font-weight: bold;"></td>
+		<td class="flag"><span title="United States">🇺🇸</span></td>
+		<td><a href="https://www.bing.com">bing.com</a></td>
+		<td><span style="font-weight:bold;">index</span></td>
+	</tr>
+	<tr>
+		<td><img src="http://cdn.search.brave.com/serp/v1/static/brand/16c26cd189da3f0f7ba4e55a584ddde6a7853c9cc340ff9f381afc6cb18e9a1e-favicon-32x32.png" height=20></td>
+		<td><input type="submit" value="Brave" class="?q=" formaction="https://search.brave.com/search" style="font-weight: bold;"></td>
+		<td class="flag"><span title="United States">🇺🇸</span></td>
+		<td><a href="https://search.brave.com">search.brave.com</a></td>
+		<td><span style="font-weight:bold;">index</span>, private, unfiltered</td>
+	</tr>
+	<tr>
+		<td><img src="http://search.bus-hit.me/favicon.ico" height=20></td>
+		<td><input type="submit" value="Bus-hit.me" class="?q=" formaction="https://search.bus-hit.me/search" formmethod="post"></td>
+		<td class="flag"><span title="United States">🇺🇸</span></td>
+		<td><a href="https://search.bus-hit.me">search.bus-hit.me</a></td>
+		<td>meta, private, post</td>
+	</tr>
+	<tr>
+		<td><img src="images/chatnoir.png" height=20></td>
+		<td><input type="submit" value="ChatNoir" class="?q=" formaction="https://www.chatnoir.eu"></td>
+		<td class="flag"><span title="Germany">🇩🇪</span></td>
+		<td><a href="https://www.chatnoir.eu">chatnoir.eu</a></td>
+		<td>meta, &rarr;commoncrawl, &rarr;clueweb</td>
+	</tr>
+	<tr>
+		<td><img src="http://curlie.org/img/curlie-ico.gif" height=20></td>
+		<td><input type="submit" value="Curlie" class="?q=" formaction="https://curlie.org/search" style="font-weight: bold;"></td>
+		<td class="flag"><span title="United States">🇺🇸</span></td>
+		<td><a href="https://curlie.org">curlie.org</a></td>
+		<td><span style="font-weight:bold;">index</span>, ➡dmoz</td>
+	</tr>
+	<tr>
+		<td><img src="http://dsearch.com/favicon.ico" height=20></td>
+		<td><input type="submit" value="DSearch" class="?q=" formaction="https://dsearch.com/search"></td>
+		<td class="flag"><span title="Canada">🇨🇦</span></td>
+		<td><a href="https://dsearch.com">dsearch.com</a></td>
+		<td>meta</td>
+	</tr>
+	<tr>
+		<td><img src="http://duckduckgo.com/favicon.ico" height=20></td>
+		<td><input type="submit" value="DuckDuckGo" class="?q=" formaction="https://duckduckgo.com" formmethod="post" style="font-weight: bold;"></td>
+		<td class="flag"><span title="United States">🇺🇸</span></td>
+		<td><a href="https://duckduckgo.com">duckduckgo.com</a></td>
+		<td><span style="font-weight:bold;">index</span>, private, post, &rarr;bing</td>
+	</tr>
+	<tr>
+		<td><img src="http://cdn-static.ecosia.org/assets/images/ico/favicon.ico" height=20></td>
+		<td><input type="submit" value="Ecosia" class="?q=" formaction="https://www.ecosia.org/search"></td>
+		<td class="flag"><span title="United States">🇺🇸</span></td>
+		<td><a href="https://www.ecosia.org">ecosia.org</a></td>
+		<td>meta, &rarr;bing</td>
+	</tr>
+	<!--<tr>
+		<td><img src="http://entfer.com/static/favicon/favicon-32x32.png" height=20></td>
+		<td><input type="submit" value="Entfer" class="?q=" formaction="https://entfer.com/search" style="font-weight: bold;"></td>
+		<td class="flag"><span title="United States">🇺🇸</span></td>
+		<td><a href="https://entfer.com">entfer.com</a></td>
+		<td><span style="font-weight:bold;">index</span></td>
+	</tr>-->
+	<tr>
+		<td><img src="http://www.entireweb.com/favicon.ico" height=20></td>
+		<td><input type="submit" value="Entireweb" class="?q=" formaction="https://search.entireweb.com/search" style="font-weight: bold;"></td>
+		<td class="flag"><span title="Netherlands">🇳🇱</span></td>
+		<td><a href="https://www.entireweb.com">entireweb.com</a></td>
+		<td><span style="font-weight:bold;">index</span>, post</td>
+	</tr>
+	<tr>
+		<td><img src="http://www.exactseek.com/favicon.ico" height=20></td>
+		<td><input type="submit" value="Exactseek" class="?q=" formaction="https://www.exactseek.com/cgi-bin/search.cgi" formmethod="post" style="font-weight: bold;"></td>
+		<td class="flag"><span title="Canada">🇨🇦</span></td>
+		<td><a href="https://www.exactseek.com">exactseek.com</a></td>
+		<td><span style="font-weight:bold;">index</span>, post</td>
+	</tr>
+	<!--<tr>
+		<td><img src="http://www.exalead.com/content/img/favicon.ico" height=20></td>
+		<td><input type="submit" value="Exalead" class="?q=" formaction="https://www.exalead.com/search/web/results/" style="font-weight: bold;"></td>
+		<td class="flag"><span title="France">🇫🇷</span></td>
+		<td><a href="https://www.exalead.com/search/">exalead.com/search</a></td>
+		<td><span style="font-weight:bold;">index</span></td>
+	</tr>-->
+	<tr>
+		<td><img src="http://gibiru.com/assets/img/favicon.ico" height=20></td>
+		<td><input type="submit" value="Gibiru" class="?q=" formaction="https://gibiru.com/results.html" style="font-weight: bold;"></td>
+		<td class="flag"><span title="United States">🇺🇸</span></td>
+		<td><a href="https://gibiru.com">gibiru.com</a></td>
+		<td><span style="font-weight:bold;">index</span>, private, unfiltered, &rarr;google</td>
+	</tr>
+	<!--<tr>
+		<td><img src="http://gigablast.com/favicon.ico" height=20></td>
+		<td><input type="button" value="Gigablast" class="?sb=1&q=" onclick="submitThis(this)" formaction="https://gigablast.com/search" style="font-weight: bold;"></td>
+		<td class="flag"><span title="United States">🇺🇸</span></td>
+		<td><a href="https://gigablast.com">gigablast.com</a></td>
+		<td><span style="font-weight:bold;">index</span></td>
+	</tr>-->
+	<tr>
+		<td><img src="http://www.google.ca/favicon.ico" height=20></td>
+		<td><input type="submit" value="Google.ca" class="?q=" formaction="https://www.google.ca/search"></td>
+		<td class="flag"><span title="Canada">🇨🇦</span></td>
+		<td><a href="https://www.google.ca">google.ca</a></td>
+		<td>➡google</td>
+	</tr>
+	<tr>
+		<td><img src="http://www.google.com/favicon.ico" height=20></td>
+		<td><input type="submit" value="Google" class="?q=" formaction="https://www.google.com/search" style="font-weight: bold;"></td>
+		<td class="flag"><span title="United States">🇺🇸</span></td>
+		<td><a href="https://www.google.com">google.com</a></td>
+		<td><span style="font-weight:bold;">index</span></td>
+	</tr>
+	<tr>
+		<td><img src="http://infotiger.com/icon/favicon-32x32.png" height=20></td>
+		<td><input type="button" value="InfoTiger" class="?query=" onclick="submitThis(this)" formaction="https://infotiger.com/search" style="font-weight: bold;"></td>
+		<td class="flag"><span title="Germany">🇩🇪</span></td>
+		<td><a href="https://infotiger.com">infotiger.com</a></td>
+		<td><span style="font-weight:bold;">index</span>, private</td>
+	</tr>
+	<tr>
+		<td><img src="http://kagi.com/favicon.ico" height=20></td>
+		<td><input type="submit" value="Kagi" class="?q=" formaction="https://kagi.com/search" style="font-weight: bold;"></td>
+		<td class="flag"><span title="United States">🇺🇸</span></td>
+		<td><a href="https://kagi.com">kagi.com</a></td>
+		<td><span style="font-weight:bold;">index</span></td>
+	</tr>
+	<tr>
+		<td><img src="http://ly.lygo.net/static/lycos/img/favicon.ico" height=20></td>
+		<td><input type="submit" value="Lycos" class="?q=" formaction="https://search.lycos.com/web" style="font-weight: bold;"></td>
+		<td class="flag"><span title="United States">🇺🇸</span></td>
+		<td><a href="https://search.lycos.com">lycos.com</a></td>
+		<td><span style="font-weight:bold;">index</span></td>
+	</tr>
+	<tr>
+		<td><img src="http://search.marginalia.nu/favicon.ico" height=20></td>
+		<td><input type="button" value="Marginalia" class="?query=" onclick="submitThis(this)" formaction="https://search.marginalia.nu/search" style="font-weight: bold;"></td>
+		<td class="flag"><span title="Sweden">🇸🇪</span></td>
+		<td><a href="https://search.marginalia.nu">search.marginalia.nu</a></td>
+		<td><span style="font-weight:bold;">index</span></td>
+	</tr>
+	<tr>
+		<td><img src="http://metager.org/favicon.ico" height=20></td>
+		<td><input type="button" value="MetaGer" class="?eingabe=" onclick="submitThis(this)" formaction="https://metager.org/meta/meta.ger3" style="font-weight: bold;"></td>
+		<td class="flag"><span title="Germany">🇩🇪</span></td>
+		<td><a href="https://metager.org">metager.org</a></td>
+		<td><span style="font-weight:bold;">index</span>, &rarr;infotiger</td>
+	</tr>
+	<tr>
+		<td><img src="http://www.mojeek.com/favicon.ico" height=20></td>
+		<td><input type="submit" value="Mojeek" class="?q=" formaction="https://www.mojeek.com/search" formmethod="post" style="font-weight: bold;"></a></td>
+		<td class="flag"><span title="United Kingdom">🇬🇧</span></td>
+		<td><a href="https://www.mojeek.com">mojeek.com</a></td>
+		<td><span style="font-weight:bold;">index</span>, private, unfiltered, post</td>
+	</tr>
+	<tr>
+		<td><img src="http://www.naver.com/favicon.ico" height=20></td>
+		<td><input type="button" value="Naver" class="?query=" onclick="submitThis(this)" formaction="https://search.naver.com/search.naver" style="font-weight: bold;"></td>
+		<td class="flag"><span title="South Korea">🇰🇷</span></td>
+		<td><a href="https://www.naver.com">naver.com</a></td>
+		<td><span style="font-weight:bold;">index</span></td>
+	</tr>
+	<!--<tr>
+		<td><img src="http://ninfex.com/favicon.ico" height=20></td>
+		<td><input type="submit" value="Ninfex" class="?q=" formaction="https://ninfex.com/search" style="font-weight: bold;"></td>
+		<td class="flag"><span title="Iceland">🇮🇸</span></td>
+		<td><a href="https://ninfex.com">ninfex.com</a></td>
+		<td><span style="font-weight:bold;">index</span></td>
+	</tr>-->
+	<!--<tr>
+		<td><img src="http://okeano.com/favicon.ico" height=20></td>
+		<td><input type="submit" value="Okeano" class="?q=" formaction="https://okeano.com/search" style="font-weight: bold;"></td>
+		<td class="flag"><span title="Spain">🇪🇸</span></td>
+		<td><a href="https://okeano.com">okeano.com</a></td>
+		<td><span style="font-weight:bold;">index</span>, private, unfiltered, &rarr;bing</td>
+	</tr>-->
+	<!--<tr>
+		<td><img src="http://peekier.com/assets/favicon.png" height=20></td>
+		<td><input type="button" value="Peekier" class="#!" onclick="submitThis(this)" formaction="https://peekier.com" style="font-weight: bold;"></td>
+		<td class="flag"><span title="Iceland">🇮🇸</span></td>
+		<td><a href="https://peekier.com">peekier.com</a></td>
+		<td><span style="font-weight:bold;">index</span>, private, unfiltered, &rarr;bing</td>
+	</tr>-->
+	<!--<tr>
+		<td><img src="http://petalsearch.com/favicon.ico" height=20></td>
+		<td><input type="button" value="Petal" class="?query=" onclick="submitThis(this)" formaction="https://petalsearch.com/search" style="font-weight: bold;"></td>
+		<td class="flag"><span title="China">🇨🇳</span></td>
+		<td><a href="https://petalsearch.com">petalsearch.com</a></td>
+		<td><span style="font-weight:bold;">index</span></td>
+	</tr>-->
+	<tr>
+		<td><img src="http://plumb.one/favicon.ico" height=20></td>
+		<td><input type="submit" value="Plumb" class="?q=" formaction="https://plumb.one/results" style="font-weight: bold;"></td>
+		<td class="flag"><span title="United States">🇺🇸</span></td>
+		<td><a href="https://plumb.one">plumb.one</a></td>
+		<td><span style="font-weight:bold;">index</span>, private, &rarr;google</td>
+	</tr>
+	<tr>
+		<td><img src="http://presearch.org/favicon.ico" height=20></td>
+		<td><input type="submit" value="Presearch" class="?q=" formaction="https://engine.presearch.org/search"></td>
+		<td class="flag"><span title="Canada">🇨🇦</span></td>
+		<td><a href="https://presearch.org">presearch.org</a></td>
+		<td>meta, private</span></td>
+	</tr>
+	<tr>
+		<td><img src="http://www.qwant.com/favicon.ico" height=20></td>
+		<td><input type="submit" value="Qwant" class="?q=" formaction="https://www.qwant.com" style="font-weight: bold;"></td>
+		<td class="flag"><span title="France">🇫🇷</span></td>
+		<td><a href="https://www.qwant.com">qwant.com</a></td>
+		<td><span style="font-weight:bold;">index</span>, private</td>
+	</tr>
+	<tr>
+		<td><img src="http://rightdao.com/favicon.ico" height=20></td>
+		<td><input type="submit" value="RightDao" class="?q=" formaction="https://rightdao.com/search" style="font-weight: bold;"></td>
+		<td class="flag"><span title="Canada">🇨🇦</span></td>
+		<td><a href="https://rightdao.com/">rightdao.com</a></td>
+		<td><span style="font-weight:bold;">index</span>, private</td>
+	</tr>
+	<!--<tr>
+		<td><img src="http://whoogle.sdf.org/static/img/favicon/favicon-32x32.png" height=20></td>
+		<td><input type="submit" value="Sdf.org" class="?q=" formaction="https://whoogle.sdf.org/search" formmethod="post"></td>
+		<td class="flag"><span title="United States">🇺🇸</span></td>
+		<td><a href="https://whoogle.sdf.org">whoogle.sdf.org</a></td>
+		<td>private, post, ➡google</td>
+	</tr>-->
+	<tr>
+		<td><img src="http://searchmysite.net/favicon.ico" height=20></td>
+		<td><input type="submit" value="SearchMySite" class="?q=" formaction="https://searchmysite.net/search" style="font-weight: bold;"></td>
+		<td class="flag"><span title="United Kingdom">🇬🇧</span></td>
+		<td><a href="https://searchmysite.net">searchmysite.net</a></td>
+		<td><span style="font-weight:bold;">index</span></td>
+	</tr>
+	<tr>
+		<td><img src="images/search.png" height=20></td>
+		<td><input type="submit" value="Seekport" class="?q=" formaction="http://www.seekport.com" style="font-weight: bold;"></td>
+		<td class="flag"><span title="Canada">🇨🇦</span></td>
+		<td><a href="http://www.seekport.com">seekport.com</a></td>
+		<td><span style="font-weight:bold;">index</span>, http</td>
+	</tr>
+	<tr>
+		<td><img src="http://www.secretsearchenginelabs.com/favicon.ico" height=20></td>
+		<td><input type="button" value="SecretSELabs" class="/" onclick="submitThis(this)" formaction="http://www.secretsearchenginelabs.com/find" style="font-weight: bold;"></td>
+		<td class="flag"><span title="Finland">🇫🇮</span></td>
+		<td><a href="http://www.secretsearchenginelabs.com">secretsearchenginelabs.com</a></td>
+		<td><span style="font-weight:bold;">index</span></td>
+	</tr>
+	<tr>
+		<td><img src="http://cmp.seznam.cz/favicon.ico" height=20></td>
+		<td><input type="submit" value="Seznam" class="?q=" formaction="https://search.seznam.cz" style="font-weight: bold;"></td>
+		<td class="flag"><span title="Czech Republic">🇨🇿<span><br></td>
+		<td><a href="https://search.seznam.cz">search.seznam.cz</a></td>
+		<td><span style="font-weight:bold;">index</span></td>
+	</tr>
+	<!--<tr>
+		<td><img src="http://siik.co/app/public/images/siik_favicon.png" height=20></td>
+		<td><input type="submit" value="Siik" class="?q=" formaction="https://siik.co/search" formmethod="post" style="font-weight: bold;"></td>
+		<td class="flag"><span title="Italy">🇮🇹<span><br></td>
+		<td><a href="https://siik.co">siik.co</a></td>
+		<td><span style="font-weight:bold;">index</span>, post</td>
+	</tr>-->
+	<tr>
+		<td><img src="http://sogou.com/images/logo/new/favicon.ico" height=20></td>
+		<td><input type="button" value="Sogou" class="?query=" onclick="submitThis(this)" formaction="https://sogou.com/web" style="font-weight: bold;"></td>
+		<td class="flag"><span title="China">🇨🇳</span></td>
+		<td><a href="https://sogou.com">sogou.com</a></td>
+		<td><span style="font-weight:bold;">index</span></td>
+	</tr>
+	<tr>
+		<td><img src="http://www.startpage.com/sp/cdn/favicons/favicon-32x32--default.png" height=20></td>
+		<td><input type="submit" value="StartPage" class="?q=" formaction="https://www.startpage.com/sp/search" formmethod="post"></td>
+		<td class="flag"><span title="Netherlands">🇳🇱</span></td>
+		<td><a href="https://www.startpage.com">startpage.com</a></td>
+		<td>private, post, ➡google</span></td>
+	</tr>
+	<tr>
+		<td><img src="http://swisscows.com/favicon-32.png" height=20></td>
+		<td><input type="button" value="Swisscows" class="?query=" onclick="submitThis(this)" formaction="https://swisscows.com/web"></td>
+		<td class="flag"><span title="Switzerland">🇨🇭</span></td>
+		<td><a href="https://swisscows.com">swisscows.com</a></td>
+		<td>private, ➡bing</span></td>
+	</tr>
+	<tr>
+		<td><img src="http://teclis.com/assets//favicon-32x32.png" height=20></td>
+		<td><input type="button" value="Teclis" class="?topics=" onclick="submitThis(this)" formaction="http://teclis.com:1333" style="font-weight: bold;"></td>
+		<td class="flag"><span title="United States">🇺🇸</span></td>
+		<td><a href="http://teclis.com">teclis.com</a></td>
+		<td><span style="font-weight:bold;">index</span>, http</td>
+	</tr>
+	<tr>
+		<td><img src="http://wiby.me/favicon.ico" height=20></td>
+		<td><input type="submit" value="Wiby" class="?q=" formaction="https://wiby.me" style="font-weight: bold;"></td>
+		<td class="flag"><span title="United States">🇺🇸</span></td>
+		<td><a href="https://wiby.me">wiby.me</a></td>
+		<td><span style="font-weight:bold;">index</span></td>
+	</tr>
+	<tr>
+		<td><img src="http://ca.search.yahoo.com/favicon.ico" height=20></td>
+		<td><input type="submit" value="Yahoo.ca" class="?q=" formaction="https://ca.search.yahoo.com/search"></td>
+		<td class="flag"><span title="Canada">🇨🇦</span></td>
+		<td><a href="https://ca.search.yahoo.com">ca.search.yahoo.com</a></td>
+		<td>➡bing</span></td>
+	</tr>
+	<tr>
+		<td><img src="http://search.yahoo.com/favicon.ico" height=20></td>
+		<td><input type="submit" value="Yahoo" class="?q=" formaction="https://search.yahoo.com/search"></td>
+		<td class="flag"><span title="United States">🇺🇸</span></td>
+		<td><a href="https://search.yahoo.com">search.yahoo.com</a></td>
+		<td>➡bing</span></td>
+	</tr>
+	<tr>
+		<td><img src="http://yandex.st/lego/_/rBTjd6UOPk5913OSn5ZQVYMTQWQ.ico" height=20></td>
+		<td><input type="button" value="Yandex" class="?text=" onclick="submitThis(this)" formaction="https://yandex.com/search" style="font-weight: bold;"></td>
+		<td class="flag"><span title="Russia">🇷🇺</span></td>
+		<td><a href="https://yandex.com/search">yandex.com/search</a></td>
+		<td><span style="font-weight:bold;">index</span></td>
+	</tr>
+	<tr>
+		<td><img src="http://www.yioop.com/favicon.ico" height=20></td>
+		<td><input type="submit" value="Yioop" class="?q=" formaction="https://www.yioop.com" formmethod="post" style="font-weight: bold;"></td>
+		<td class="flag"><span title="United States">🇺🇸</span></td>
+		<td><a href="https://www.yioop.com">yioop.com</a></td>
+		<td><span style="font-weight:bold;">index</span>, post</td>
+	</tr>
+	</table>
+		
+	</form>
+
+    
+    <p style="margin-top: 50px; font-size: 66%;">send corrections/suggestions to the <a href="https://codywohlers.ca/contact" target="_blank">github repo</a>.
+	<p style="font-size: 66%; text-align:center;">2024 <a href="https://codywohlers.ca" target="_blank">codywohlers<br></p>
+        
+</body>
+</html>

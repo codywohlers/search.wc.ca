@@ -1,0 +1,91 @@
+/* 
+2020-Mar-21 code@codywohlers.ca - added img and .flag from html files.
+2020-Mar-20 code@codywohlers.ca - added dark mode shadows and form text and button.
+2020-Mar-14 code@codywohlers.ca - added support for dark mode.
+2016-Nov-21 code@codywohlers.ca - removed all structural components and left only aesthetic. 
+2016-Apr-10 by http://cody.wc.ca - initial creation.
+*/
+
+/** {
+    border: 1px red solid;
+}*/
+
+html, body {
+    /*border: 1px red solid;*/
+    font-family: sans-serif;
+    color: darkslategrey;
+}
+
+a {
+    text-decoration: none;
+}
+
+a:hover {
+    text-decoration: underline;
+    cursor: pointer;
+}
+
+a:active {
+    text-decoration: underline;
+}
+
+code, xmp {
+    font-family: monospace;
+}
+
+img {
+	vertical-align: middle;
+}
+.flag {
+	font-size: 125%;
+}
+
+table, th, td {
+    /*border: 1px red solid;*/
+}
+
+#title {
+    font-size: 200%;
+    color: white;
+    text-shadow: 0 0 4px #000000, 0 0 4px #000000; 
+}
+
+p.list {
+    font-size: 80%;
+}
+
+*.shadow {
+    padding: 10px;
+    box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+}
+
+input[type=text],input[type=password] {
+    border: 1px gray solid;
+}
+
+/* detect dark mode */
+@media (prefers-color-scheme: dark) {
+
+	body {
+		color: white;
+		background-color: #101010;
+	}
+
+	a {
+		color: deepskyblue;
+	}
+
+	a:visited {
+		color: deepskyblue;
+	}
+
+	*.shadow {
+		box-shadow: 0 4px 8px 0 rgba(255, 255, 255, 0.2), 0 6px 20px 0 rgba(255, 255, 255, 0.19);
+	}
+	
+	input {
+		color: white;
+		background-color: #101010;
+	}
+
+}    

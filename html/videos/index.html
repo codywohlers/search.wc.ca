@@ -1,0 +1,475 @@
+<!DOCTYPE html>
+<!-- 
+2022-Mar-20 code@codywohlers.ca - initial creation.
+-->
+<html>
+<head>
+    <title>Searching Video Sites</title>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="search images">
+    <meta name="keywords" content="search images">
+    <link rel="stylesheet" href="../stylesheet.css">
+    <link rel="icon" href="images/video icon.png">
+    <script src="../script.js"></script>
+</head>
+<body>
+    <h1 id="title"><img src="images/video icon.png" style="vertical-align:center; height:50px;"> Searching Video Sites</h1>
+    
+    <p style="font-size:80%">Search also:
+    <a href="../">Internet</a> |
+    <a href="../encyclopedias">Encyclopedias</a> |
+    <a href="../images">Images</a>
+    </p>
+    
+    <p style="width: 700px;">Use this page to find videos on the internet.</p>
+
+    <form id="theform" target="_blank">
+
+	<input name="q" id="query" type="text" style="min-width: 500px;" autofocus placeholder="Search Terms">
+
+    <table>
+    <tr><td>
+		<span style="font-size: 80%;">Default</span><br> <!-- Default because it's the first submit? -->
+		<input type="button" value="Youtube" class="?search_query=" onclick="submitThis(this)" formaction="https://www.youtube.com/results" style="font-weight: bold;"><br>&nbsp;
+	</td><td style="padding-left:25px;">
+		<span style="font-size: 80%;">Everything<br>
+		<input type="button" value="⏷ All *" onclick="submitAll('list')"><br>
+		<span style="font-size: 80%; vertical-align:top;"> * Opens a lot of tabs.</span>
+	</td></tr>
+	</table>
+        			
+	<table id="list" style="font-size:80%;">
+	<tr>
+		<td colspan=4>User Content</td>
+	</tr>
+	<tr>
+		<td><img src="http://archive.org/favicon.ico" height=20></td>
+		<td><input type="button" value="Archive.org" class="?query=" onclick="submitThis(this)" formaction="https://archive.org/details/movies" style="font-weight: bold;"></td>
+		<td class="flag"><span title="United States">🇺🇸</span></td>
+		<td><a href="https://archive.org">archive.org</a></td>
+		<td><span style="font-weight: bold;">user content</span></td>
+	</tr>
+	<tr>
+		<td><img src="http://banned.video/favicon.ico" height=20></td>
+		<td><input type="button" value="Banned" class="?query=" onclick="submitThis(this)" formaction="https://www.banned.video/results" style="font-weight: bold;"></td>
+		<td class="flag"><span title="United States">🇺🇸</span></td>
+		<td><a href="https://www.banned.video">banned.video</a></td>
+		<td><span style="font-weight: bold;">user content</span>, uncensored</td>
+	</tr>
+	<tr>
+		<td><img src="https://www.bilibili.com/favicon.ico" height=20></td>
+		<td><input type="button" value="Bilibili" class="?keyword=" onclick="submitThis(this)" formaction="https://search.bilibili.com/all" style="font-weight: bold;"></td>
+		<td class="flag"><span title="China">🇨🇳</span></td>
+		<td><a href="https://www.bilibili.com">bilibili.com</a></td>
+		<td><span style="font-weight: bold;">user content</span></td>
+	</tr>
+	<tr>
+		<td><img src="images/bitchute.png" height=20></td>
+		<td><input type="button" value="BitChute" class="?query=" onclick="submitThis(this)" formaction="https://www.bitchute.com/search" style="font-weight: bold;"></td>
+		<td class="flag"><span title="United States">🇺🇸</span></td>
+		<td><a href="https://www.bitchute.com">bitchute.com</a></td>
+		<td><span style="font-weight: bold;">user content</span>, uncensored</td>
+	</tr>
+	<!--<tr>
+		<td><img src="https://brandnewtube.com/favicon.ico" height=20></td>
+		<td><input type="button" value="BrandNewTube" class="?keyword=" onclick="submitThis(this)" formaction="https://brandnewtube.com/search" style="font-weight: bold;"></td>
+		<td class="flag"><span title="United Kingdom">🇬🇧</span></td>
+		<td><a href="https://brandnewtube.com">brandnewtube.com</a></td>
+		<td><span style="font-weight: bold;">user content</span></td>
+	</tr>-->
+	<tr>
+		<td><img src="http://www.brighteon.com/static/icons/favicon/favicon.ico" height=20></td>
+		<td><input type="button" value="Brighteon" class="?query=" onclick="submitThis(this)" formaction="https://www.brighteon.com/new-search" style="font-weight: bold;"></td>
+		<td class="flag"><span title="United States">🇺🇸</span></td>
+		<td><a href="https://www.brighteon.com">brighteon.com</a></td>
+		<td><span style="font-weight: bold;">user content</span>, uncensored</td>
+	</tr>
+	<tr>
+		<td><img src="http://www.dailymotion.com/favicon.ico" height=20></td>
+		<td><input type="button" value="DailyMotion" class="/" onclick="submitThis(this)" formaction="https://www.dailymotion.com/search" style="font-weight: bold;"></td>
+		<td class="flag"><span title="France">🇫🇷</span></td>
+		<td><a href="https://www.dailymotion.com">dailymotion.com</a></td>
+		<td><span style="font-weight: bold;">user content</span></td>
+	</tr>
+	<!--<tr>
+		<td><img src="https://diytube.video/videos/favicon.png" height=20></td>
+		<td><input type="button" value="DIYTube" class="?search=" onclick="submitThis(this)" formaction="https://diytube.video" style="font-weight: bold;"></td>
+		<td class="flag"><span title="United States">🇺🇸</span></td>
+		<td><a href="https://diytube.video">diytube.video</a></td>
+		<td><span style="font-weight: bold;">user content</span>, uncensored</td>
+	</tr>-->
+	<tr>
+		<td><img src="http://d.tube/favicon.ico" height=20></td>
+		<td><input type="button" value="DTube" class="/" onclick="submitThis(this)" formaction="https://d.tube/#!/s" style="font-weight: bold;"></td>
+		<td class="flag"><span title="France">🇫🇷</span></td>
+		<td><a href="https://d.tube">d.tube</a></td>
+		<td><span style="font-weight: bold;">user content</span>, ipfs, &rarr;youtube</td>
+	</tr>
+	<tr>
+		<td><img src="https://static.xx.fbcdn.net/rsrc.php/yb/r/hLRJ1GG_y0J.ico" height=20></td>
+		<td><input type="submit" value="Facebook" class="?q=" formaction="https://www.facebook.com/watch/search" style="font-weight: bold;"></td>
+		<td class="flag"><span title="United States">🇺🇸</span></td>
+		<td><a href="https://www.facebook.com/watch">facebook.com/watch</a></td>
+		<td><span style="font-weight: bold;">user content</span></td>
+	</tr>
+	<tr>
+		<td><img src="http://haokan.baidu.com/favicon.ico" height=20></td>
+		<td><input type="button" value="Haokan" class="?query=" onclick="submitThis(this)" formaction="https://haokan.baidu.com/web/search/page" style="font-weight: bold;"></td>
+		<td class="flag"><span title="China">🇨🇳</span></td>
+		<td><a href="https://haokan.baidu.com">haokan.baidu.com</a></td>
+		<td><span style="font-weight: bold;">user content</span></td>
+	</tr>
+	<tr>
+		<td><img src="https://www.ixigua.com/favicon.ico" height=20></td>
+		<td><input type="button" value="Ixigua" class="/" onclick="submitThis(this)" formaction="https://www.ixigua.com/search" style="font-weight: bold;"></td>
+		<td class="flag"><span title="China">🇨🇳</span></td>
+		<td><a href="https://www.ixigua.com">ixigua.com</a></td>
+		<td><span style="font-weight: bold;">user content</span></td>
+	</tr>
+	<tr>
+		<td><img src="http://nebula.app/favicon.ico" height=20></td>
+		<td><input type="submit" value="Nebula" class="?q=" formaction="https://nebula.app/search" style="font-weight: bold;"></td>
+		<td class="flag"><span title="Canada">🇨🇦</span></td>
+		<td><a href="https://nebula.app">nebula.app</a></td>
+		<td><span style="font-weight: bold;">user content</span></td>
+	</tr>
+	<tr>
+		<td><img src="http://newtube.app/favicon.ico" height=20></td>
+		<td><input type="button" value="NewTube" class="?searchQuery=" onclick="submitThis(this)" formaction="https://newtube.app/search" style="font-weight: bold;"></td>
+		<td class="flag"><span title="Iceland">🇮🇸</span></td>
+		<td><a href="https://newtube.app">newtube.app</a></td>
+		<td><span style="font-weight: bold;">user content</span></td>
+	</tr>
+	<tr>
+		<td><img src="http://odysee.com/public/favicon_128.png" height=20></td>
+		<td><input type="submit" value="Odysee" class="?q=" formaction="https://odysee.com/$/search" style="font-weight: bold;"></td>
+		<td class="flag"><span title="United States">🇺🇸</span></td>
+		<td><a href="https://odysee.com">odysee.com</a></td>
+		<td><span style="font-weight: bold;">user content</span>, uncensored</td>
+	</tr>
+	<tr>
+		<!-- TODO get ok.ru search working -->
+		<td><img src="http://ok.ru/favicon.ico" height=20></td>
+		<td><input type="button" value="OK.ru" class="?s=" onclick="submitThis(this)" formaction="https://ok.ru/video/search" style="font-weight: bold;"></td>
+		<td class="flag"><span title="Russia">🇷🇺</span></td>
+		<td><a href="https://ok.ru/video">ok.ru/video</a></td>
+		<td><span style="font-weight: bold;">user content</span></td>
+	</tr>
+	<tr>
+		<td><img src="http://www.pexels.com/assets/static/images/meta/favicon.ico" height=20></td>
+		<td><input type="button" value="Pexels" class="/" onclick="submitThis(this)" formaction="https://pexels.com/search/videos" style="font-weight: bold;"></td>
+		<td class="flag"><span title="Germany">🇩🇪</span></td>
+		<td><a href="https://www.pexels.com">pexels.com</a></td>
+		<td><span style="font-weight: bold;">user content</span></td>
+	</tr>
+	<tr>
+		<td><img src="http://v.qq.com/favicon.ico" height=20></td>
+		<td><input type="submit" value="Qq" class="?q=" formaction="https://v.qq.com/x/search" style="font-weight: bold;"></td>
+		<td class="flag"><span title="China">🇨🇳</span></td>
+		<td><a href="https://v.qq.com">v.qq.com</a></td>
+		<td><span style="font-weight: bold;">user content</span></td>
+	</tr>
+	<tr>
+		<td><img src="http://rumble.com/favicon.ico" height=20></td>
+		<td><input type="submit" value="Rumble" class="?q=" formaction="https://rumble.com/search/video" style="font-weight: bold;"></td>
+		<td class="flag"><span title="Canada">🇨🇦</span></td>
+		<td><a href="https://rumble.com">rumble.com</a></td>
+		<td><span style="font-weight: bold;">user content</span>, uncensored</td>
+	</tr>
+	<tr>
+		<td><img src="http://rutube.ru/favicon.ico" height=20></td>
+		<td><input type="button" value="RuTube" class="?query=" onclick="submitThis(this)" formaction="https://rutube.ru/search" style="font-weight: bold;"></td>
+		<td class="flag"><span title="Russia">🇷🇺</span></td>
+		<td><a href="https://rutube.ru">rutube.ru</a></td>
+		<td><span style="font-weight: bold;">user content</span></td>
+	</tr>
+	<tr>
+		<!-- TODO seems to be getting blocked by anti-spam? (anti-reptile lol) -->
+		<td><img src="http://tv.sohu.com/favicon.ico" height=20></td>
+		<td><input type="button" value="Sohu" class="?wd=" onclick="submitThis(this)" formaction="https://so.tv.sohu.com/mts" style="font-weight: bold;"></td>
+		<td class="flag"><span title="China">🇨🇳</span></td>
+		<td><a href="https://tv.sohu.com">tv.sohu.com</a></td>
+		<td><span style="font-weight: bold;">user content</span></td>
+	</tr>
+	<tr>
+		<td><img src="https://www.tiktok.com/favicon.ico" height=20></td>
+		<td><input type="submit" value="TikTok" class="?q=" formaction="https://www.tiktok.com/search" style="font-weight: bold;"></td>
+		<td class="flag"><span title="China">🇨🇳</span></td>
+		<td><a href="https://www.tiktok.com">tiktok.com</a></td>
+		<td><span style="font-weight: bold;">user content</span></td>
+	</tr>
+	<tr>
+		<td><img src="http://truutube.com/videos/favicon.png" height=20></td>
+		<td><input type="submit" value="TruuTube" class="?q=" formaction="https://truutube.com/search" style="font-weight: bold;"></td>
+		<td class="flag"><span title="United States">🇺🇸</span></td>
+		<td><a href="https://truutube.com">truutube.com</a></td>
+		<td><span style="font-weight: bold;">user content</span>, &rarr;youtube</td>
+	</tr>
+	<tr>
+		<td><img src="https://tubitv.com/favicon.ico" height=20></td>
+		<td><input type="button" value="Tubi" class="/" onclick="submitThis(this)" formaction="https://tubitv.com/search" style="font-weight: bold;"></td>
+		<td class="flag"><span title="United States">🇺🇸</span></td>
+		<td><a href="http://tubitv.com">tubitv.com</a></td>
+		<td><span style="font-weight:bold;">user content</span></td>
+	</tr>
+	<tr>
+		<td><img src="https://utreon.com/favicon.png" height=20></td>
+		<td><input type="submit" value="Utreon" class="?q=" formaction="https://utreon.com/search" style="font-weight: bold;"></td>
+		<td class="flag"><span title="United States">🇺🇸</span></td>
+		<td><a href="https://utreon.com">utreon.com</a></td>
+		<td><span style="font-weight: bold;">user content</span></td>
+	</tr>
+	<tr>
+		<td><img src="https://weibo.com/favicon.ico" height=20></td>
+		<td><input type="submit" value="Weibo" class="?q=" formaction="https://s.weibo.com/weibo" style="font-weight: bold;"></td>
+		<td class="flag"><span title="China">🇨🇳</span></td>
+		<td><a href="https://weibo.com">weibo.com</a></td>
+		<td><span style="font-weight: bold;">user content</span></td>
+	</tr>
+	<tr>
+		<td><img src="http://vimeo.com/favicon.ico" height=20></td>
+		<td><input type="submit" value="Vimeo" class="?q=" formaction="https://vimeo.com/search" style="font-weight: bold;"></td>
+		<td class="flag"><span title="United States">🇺🇸</span></td>
+		<td><a href="https://vimeo.com/watch">vimeo.com</a></td>
+		<td><span style="font-weight: bold;">user content</span></td>
+	</tr>
+	<tr>
+		<td><img src="https://vk.com/images/icons/favicons/fav_logo.ico" height=20></td>
+		<td><input type="button" value="VK" class="?c[section]=video&c[q]=" onclick="submitThis(this)" formaction="https://vk.com/search" style="font-weight: bold;"></td>
+		<td class="flag"><span title="Russia">🇷🇺</span></td>
+		<td><a href="https://vk.com/video">vk.com/video</a></td>
+		<td><span style="font-weight: bold;">user content</span></td>
+	</tr>
+	<tr>
+		<td><img src="http://abs.twimg.com/favicons/twitter.3.ico" height=20></td>
+		<td><input type="button" value="X Twitter" class="?f=video&q=" onclick="submitThis(this)" formaction="https://x.com/search" style="font-weight: bold;"></td>
+		<td class="flag"><span title="United States">🇺🇸</span></td>
+		<td><a href="https://x.com">x.com</a></td>
+		<td><span style="font-weight: bold;">user content</span></td>
+	</tr>
+	<tr>
+		<td><img src="https://www.youku.com/favicon.ico" height=20></td>
+		<td><input type="button" value="Youku" class="/q_" onclick="submitThis(this)" formaction="https://so.youku.com/search_video" style="font-weight: bold;"></td>
+		<td class="flag"><span title="China">🇨🇳</span></td>
+		<td><a href="https://www.youku.com">youku.com</a></td>
+		<td><span style="font-weight: bold;">user content</span></td>
+	</tr>
+	<tr>
+		<td><img src="http://www.youtube.com/favicon.ico" height=20></td>
+		<td><input type="button" value="Youtube" class="?search_query=" onclick="submitThis(this)" formaction="https://www.youtube.com/results" style="font-weight: bold;"></td>
+		<td class="flag"><span title="United States">🇺🇸</span></td>
+		<td><a href="https://www.youtube.com">youtube.com</a></td>
+		<td><span style="font-weight: bold;">user content</span></td>
+	</tr>
+	
+	
+	<tr>
+		<td colspan=4><br>Search Engines</td>
+	</tr>
+	<tr>
+		<td><img src="http://www.baidu.com/favicon.ico" height=20></td>
+		<td><input type="button" value="Baidu" class="?pd=video&tn=vsearch&wd=" onclick="submitThis(this)" formaction="https://baidu.com/sf/vsearch"></td>
+		<td class="flag"><span title="China">🇨🇳</span></td>
+		<td><a href="https://baidu.com">baidu.com</a></td>
+		<td>internet</td>
+	</tr>
+	<tr>
+		<td><img src="http://www.bing.com/favicon.ico" height=20></td>
+		<td><input type="submit" value="Bing" class="?q=" formaction="https://www.bing.com/videos/search"></td>
+		<td class="flag"><span title="United States">🇺🇸</span></td>
+		<td><a href="https://www.bing.com">bing.com</a></td>
+		<td>internet</td>
+	</tr>
+	<tr>
+		<td><img src="http://cdn.search.brave.com/serp/v1/static/brand/16c26cd189da3f0f7ba4e55a584ddde6a7853c9cc340ff9f381afc6cb18e9a1e-favicon-32x32.png" height=20></td>
+		<td><input type="submit" value="Brave" class="?q=" formaction="https://search.brave.com/videos"></td>
+		<td class="flag"><span title="United States">🇺🇸</span></td>
+		<td><a href="https://search.brave.com">search.brave.com</a></td>
+		<td>internet</td>
+	</tr>
+	<tr>
+		<td><img src="https://search.bus-hit.me/favicon.ico" height=20></td>
+		<td><input type="button" value="Bus-hit.net" class="?category_videos&q=" onclick="submitThis(this)" formaction="https://search.bus-hit.me/search" style="font-weight: bold;"></td>
+		<td class="flag"><span title="United States">🇺🇸</span></td>
+		<td><a href="https://search.bus-hit.me">search.bus-hit.me</a></td>
+		<td>internet, <b>peertube</b></td>
+	</tr>
+	<tr>
+		<td><img src="http://dsearch.com/favicon.ico" height=20></td>
+		<td><input type="submit" value="DSearch" class="?q=" formaction="https://dsearch.com/videos"></td>
+		<td class="flag"><span title="Canada">🇨🇦</span></td>
+		<td><a href="https://dsearch.com">dsearch.com</a></td>
+		<td>internet</span></td>
+	</tr>
+	<tr>
+		<td><img src="http://duckduckgo.com/favicon.ico" height=20></td>
+		<td><input type="button" value="DuckDuckGo" class="?ia=videos&iax=videos&q=" onclick="submitThis(this)" formaction="https://duckduckgo.com"></td>
+		<td class="flag"><span title="United States">🇺🇸</span></td>
+		<td><a href="https://duckduckgo.com">duckduckgo.com</a></td>
+		<td>internet</td>
+	</tr>
+	<tr>
+		<td><img src="http://cdn-static.ecosia.org/assets/images/ico/favicon.ico" height=20></td>
+		<td><input type="submit" value="Ecosia" class="?q=" formaction="https://www.ecosia.org/videos"></td>
+		<td class="flag"><span title="United States">🇺🇸</span></td>
+		<td><a href="https://www.ecosia.org">ecosia.org</a></td>
+		<td>internet</td>
+	</tr>
+	<tr>
+		<td><img src="https://www.entireweb.com/favicon.ico" height=20></td>
+		<td><input type="button" value="Entireweb" class="?engine=3&q=" onclick="submitThis(this)" formaction="https://search.entireweb.com/search"></td>
+		<td class="flag"><span title="Netherlands">🇳🇱</span></td>
+		<td><a href="https://www.entireweb.com">entireweb.com</a></td>
+		<td>internet</td>
+	</tr>
+	<tr>
+		<td><img src="http://gibiru.com/assets/img/favicon.ico" height=20></td>
+		<!-- TODO find away to search videos directly -->
+		<td><input type="submit" value="Gibiru" class="?q=" formaction="https://gibiru.com/results.html"></td>
+		<td class="flag"><span title="United States">🇺🇸</span></td>
+		<td><a href="https://gibiru.com">gibiru.com</a></td>
+		<td>internet</td>
+	</tr>
+	<tr>
+		<td><img src="http://www.google.com/favicon.ico" height=20></td>
+		<td><input type="button" value="Google" class="?tbm=vid&q=" onclick="submitThis(this)" formaction="https://www.google.com/search"></td>
+		<td class="flag"><span title="United States">🇺🇸</span></td>
+		<td><a href="https://www.google.com">google.com</a></td>
+		<td>internet</td>
+	</tr>
+	<tr>
+		<td><img src="http://inv.zzls.xyz/favicon.ico" height=20></td>
+		<td><input type="button" value="Indivious" class="?q=" onclick="submitThis(this)" formaction="https://inv.zzls.xyz/search"></td>
+		<td class="flag"><span title="Chile">🇨🇱</span></td>
+		<td><a href="https://inv.zzls.xyz">inv.zzls.xyz</a></td>
+		<td>&rarr;youtube</td>
+	</tr>
+	<tr>
+		<td><img src="http://www.naver.com/favicon.ico" height=20></td>
+		<td><input type="button" value="Naver" class="?where=video&query=" onclick="submitThis(this)" formaction="https://search.naver.com/search.naver"></td>
+		<td class="flag"><span title="South Korea">🇰🇷</span></td>
+		<td><a href="https://www.naver.com">naver.com</a></td>
+		<td>internet</td>
+	</tr>
+	<!--<tr>
+		<td><img src="https://okeano.com/favicon.ico" height=20></td>
+		<td><input type="submit" value="Okeano" class="?q=" formaction="https://okeano.com/videos"></td>
+		<td class="flag"><span title="Spain">🇪🇸</span></td>
+		<td><a href="https://okeano.com">okeano.com</a></td>
+		<td>internet</td>
+	</tr>-->
+	<!--<tr>
+		<td><img src="https://petalsearch.com/favicon.ico" height=20></td>
+		<td><input type="button" value="Petal" class="?channel=video&query=" onclick="submitThis(this)" formaction="https://petalsearch.com/search"></td>
+		<td class="flag"><span title="China">🇨🇳</span></td>
+		<td><a href="https://petalsearch.com">petalsearch.com</a></td>
+		<td>internet</td>
+	</tr>-->
+	<!--<tr>
+		<td><img src="https://www.peteyvid.com/favicon-32x32.png" height=20></td>
+		<td><input type="submit" value="PeteyVid" class="?q=" formaction="https://www.peteyvid.com/index.php"></td>
+		<td class="flag"><span title="United States">🇺🇸</span></td>
+		<td><a href="https://www.peteyvid.com">peteyvid.com</a></td>
+		<td>internet</td>
+	</tr>-->
+	<tr>
+		<td><img src="https://plumb.one/favicon.ico" height=20></td>
+		<td><input type="submit" value="Plumb" class="?q=" formaction="https://plumb.one/results/video"></td>
+		<td class="flag"><span title="United States">🇺🇸</span></td>
+		<td><a href="https://plumb.one">plumb.one</a></td>
+		<td>internet</td>
+	</tr>
+	<tr>
+		<td><img src="http://presearch.org/favicon.ico" height=20></td>
+		<td><input type="submit" value="Presearch" class="?q=" formaction="https://engine.presearch.org/videos"></td>
+		<td class="flag"><span title="Canada">🇨🇦</span></td>
+		<td><a href="https://presearch.org">presearch.org</a></td>
+		<td>internet</span></td>
+	</tr>
+	<tr>
+		<td><img src="http://www.qwant.com/favicon.ico" height=20></td>
+		<td><input type="button" value="Qwant" class="?t=videos&q=" onclick="submitThis(this)" formaction="https://www.qwant.com"></td>
+		<td class="flag"><span title="France">🇫🇷</span></td>
+		<td><a href="https://www.qwant.com">qwant.com</a></td>
+		<td>internet</td>
+	</tr>
+	<!--<tr>
+		<td><img src="https://whoogle.sdf.org/static/img/favicon/favicon-32x32.png?cookies_disabled=1" height=20></td>
+		<td><input type="button" value="Sdf.org" class="?tbm=vid&q=" onclick="submitThis(this)" formaction="https://whoogle.sdf.org/search"></td>
+		<td class="flag"><span title="United States">🇺🇸</span></td>
+		<td><a href="https://whoogle.sdf.org">whoogle.sdf.org</a></td>
+		<td>internet</td>
+	</tr>-->
+	<tr>
+		<td><img src="http://cmp.seznam.cz/favicon.ico" height=20></td>
+		<td><input type="submit" value="Seznam" class="?q=" formaction="https://search.seznam.cz/videa"></td>
+		<td class="flag"><span title="Czech Republic">🇨🇿<span><br></td>
+		<td><a href="https://search.seznam.cz">search.seznam.cz</a></td>
+		<td>internet</td>
+	</tr>
+	<tr>
+		<td><img src="https://sepiasearch.org/img/favicon.png" height=20></td>
+		<td><input type="button" value="Sepia" class="?search=" onclick="submitThis(this)" formaction="https://sepiasearch.org/search" style="font-weight: bold;"></td>
+		<td class="flag"><span title="France">🇫🇷</span></td>
+		<td><a href="https://sepiasearch.org">sepiasearch.org</a></td>
+		<td><b>peertube</b></td>
+	</tr>
+	<!--<tr>
+		<td><img src="http://siik.co/app/public/images/siik_favicon.png" height=20></td>
+		<td><input type="submit" value="Siik" class="?q=" formaction="https://siik.co/videos" formmethod="post"></td>
+		<td class="flag"><span title="Italy">🇮🇹<span><br></td>
+		<td><a href="https://siik.co">siik.co</a></td>
+		<td>internet</td>
+	</tr>-->
+	<tr>
+		<td><img src="http://sogou.com/images/logo/new/favicon.ico" height=20></td>
+		<td><input type="button" value="Sogou" class="?query=" onclick="submitThis(this)" formaction="https://v.sogou.com/v"></td>
+		<td class="flag"><span title="China">🇨🇳</span></td>
+		<td><a href="https://sogou.com">sogou.com</a></td>
+		<td>internet</td>
+	</tr>
+	<tr>
+		<td><img src="http://www.startpage.com/sp/cdn/favicons/favicon-32x32--default.png" height=20></td>
+		<td><input type="button" value="StartPage" class="?cat=video&q=" onclick="submitThis(this)" formaction="https://www.startpage.com/sp/search"></td>
+		<td class="flag"><span title="Netherlands">🇳🇱</span></td>
+		<td><a href="https://www.startpage.com">startpage.com</a></td>
+		<td>internet</td>
+	</tr>
+	<tr>
+		<td><img src="http://swisscows.com/favicon-32.png" height=20></td>
+		<td><input type="button" value="Swisscows" class="?query=" onclick="submitThis(this)" formaction="https://swisscows.com/video"></td>
+		<td class="flag"><span title="Switzerland">🇨🇭</span></td>
+		<td><a href="https://swisscows.com">swisscows.com</a></td>
+		<td>internet</span></td>
+	</tr>
+	<tr>
+		<td><img src="http://search.yahoo.com/favicon.ico" height=20></td>
+		<td><input type="submit" value="Yahoo" class="?q=" formaction="https://video.search.yahoo.com/search/video"></td>
+		<td class="flag"><span title="United States">🇺🇸</span></td>
+		<td><a href="https://search.yahoo.com">search.yahoo.com</a></td>
+		<td>internet</td>
+	</tr>
+	<tr>
+		<td><img src="http://yandex.st/lego/_/rBTjd6UOPk5913OSn5ZQVYMTQWQ.ico" height=20></td>
+		<td><input type="button" value="Yandex" class="?text=" onclick="submitThis(this)" formaction="https://yandex.com/video/search"></td>
+		<td class="flag"><span title="Russia">🇷🇺</span></td>
+		<td><a href="https://yandex.com/search">yandex.com/search</a></td>
+		<td>internet</td>
+	</tr>
+	<tr>
+		<td><img src="https://www.yioop.com/favicon.ico" height=20></td>
+		<td><input type="submit" value="Yioop" class="?q=" formaction="https://www.yioop.com/s/videos" formmethod="post"></td>
+		<td class="flag"><span title="United States">🇺🇸</span></td>
+		<td><a href="https://www.yioop.com">yioop.com</a></td>
+		<td>internet</td>
+	</tr>
+	</table>
+		
+	</form>
+
+	
+    <p style="margin-top: 50px; font-size: 80%;"><a href="../">back to search.wc.ca</a></p>
+        
+</body>
+</html>

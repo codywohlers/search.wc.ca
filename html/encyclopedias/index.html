@@ -1,0 +1,127 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Searching Encyclopedia Sites</title>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="search encyclopedias">
+    <meta name="keywords" content="search encyclopedias">
+    <link rel="stylesheet" href="../stylesheet.css">
+    <link rel="icon" href="images/encyclopedias.png">
+    <script src="../script.js"></script>
+</head>
+<body>
+    <h1 id="title"><img src="images/encyclopedias.png"> Searching Encyclopedia Sites</h1>
+
+    <p style="font-size:80%">Search also:
+    <a href="../">Internet</a> |
+    <a href="../images">Images</a> |
+    <a href="../videos">Videos</a>
+    </p>
+    
+    <p style="width: 700px;">Use this page to find things on internet encyclopedias.</p>
+
+    <form id="theform" target="_blank">
+
+	<input name="q" id="query" type="text" style="min-width: 500px;" autofocus placeholder="Search Terms">
+
+    <table>
+    <tr><td>
+		<span style="font-size: 80%;">Default</span><br> <!-- Default because it's the first submit? -->
+		<input type="button" value="Wikipedia" class="?search=" onclick="submitThis(this)" formaction="https://en.wikipedia.org/w/index.php" style="font-weight: bold;"><br>&nbsp;
+	</td><td style="padding-left:25px;">
+		<span style="font-size: 80%;">Everything<br>
+		<input type="button" value="⏷ All *" onclick="submitAll('list')"><br>
+		<span style="font-size: 80%; vertical-align:top;"> * Opens a lot of tabs.</span>
+	</td></tr>
+	</table>
+        			
+	<table id="list" style="font-size:80%;">
+	<tr>
+		<td><img src="http://www.britannica.com/favicon.png" height=20></td>
+		<td><input type="button" value="Britannica" class="?query=" onclick="submitThis(this)" formaction="https://www.britannica.com/search"></td>
+		<td style="font-size:125%;"><span title="United States">🇺🇸</span></td>
+		<td><a href="https://www.britannica.com">britannica.com</a></td>
+		<td>commercial</td>
+	</tr>
+	<tr>
+		<td><img src="http://en.citizendium.org/images/favicon1.ico" height=20></td>
+		<td><input type="button" value="Citizendium" class="?search=" onclick="submitThis(this)" formaction="http://en.citizendium.org/wiki"></td>
+		<td style="font-size:125%;"><span title="United States">🇺🇸</span></td>
+		<td><a href="http://en.citizendium.org">en.citizendium.org</a></td>
+		<td>wiki</td>
+	</tr>
+	<tr>
+		<td><img src="http://upload.wikimedia.org/wikipedia/commons/5/55/Conservapedia_logo.png" height=20></td>
+		<td><input type="button" value="Conservapedia" class="?search=" onclick="submitThis(this)" formaction="https://www.conservapedia.com/index.php"></td>
+		<td style="font-size:125%;"><span title="United States">🇺🇸</span></td>
+		<td><a href="https://www.conservapedia.com">conservapedia.com</a></td>
+		<td>wiki</td>
+	</tr>
+	<tr>
+		<td><img src="http://everipedia.org/favicon.ico" height=20></td>
+		<td><input type="button" value="Everipedia" class="?input=" onclick="submitThis(this)" formaction="https://everipedia.org/search"></td>
+		<td style="font-size:125%;"><span title="United States">🇺🇸</span></td>
+		<td><a href="https://everipedia.org">everipedia.org</a></td>
+		<td>wiki</td>
+	</tr>
+	<tr>
+		<td><img src="http://encyclopedia2.thefreedictionary.com/favicon.ico" height=20></td>
+		<td><input type="button" value="FreeDictionary" class="" onclick="submitThis(this)" formaction="https://encyclopedia2.thefreedictionary.com"></td>
+		<td style="font-size:125%;"><span title="United States">🇺🇸</span></td>
+		<td><a href="https://encyclopedia2.thefreedictionary.com">thefreedictionary.com</a></td>
+		<td>meta</td>
+	</tr>
+	<tr>
+		<td><img src="http://www.encyclopedia.com/sites/default/files/favicon.ico" height=20></td>
+		<td><input type="submit" value="HighBeam" class="?q=" formaction="https://www.encyclopedia.com/gsearch"></td>
+		<td style="font-size:125%;"><span title="United States">🇺🇸</span></td>
+		<td><a href="https://www.encyclopedia.com">encyclopedia.com</a></td>
+		<td>meta</td>
+	</tr>
+	<tr>
+		<td><img src="http://infogalactic.com/favicon.ico" height=20></td>
+		<td><input type="button" value="Infogalactic" class="?search=" onclick="submitThis(this)" formaction="https://infogalactic.com/w/index.php"></td>
+		<td style="font-size:125%;"><span title="Switzerland">🇨🇭</span></td>
+		<td><a href="https://infogalactic.com">infogalactic.com</a></td>
+		<td>wiki</td>
+	</tr>
+	<tr>
+		<td><img src="http://en.metapedia.org/favicon.ico" height=20></td>
+		<td><input type="button" value="Metapedia" class="?search=" onclick="submitThis(this)" formaction="https://en.metapedia.org/m/index.php"></td>
+		<td style="font-size:125%;"><span title="Sweden">🇸🇪</span></td>
+		<td><a href="https://en.metapedia.org/wiki">en.metapedia.org</a></td>
+		<td>wiki</td>
+	</tr>
+	<tr>
+		<td><img src="http://rationalwiki.org/favicon.ico" height=20></td>
+		<td><input type="button" value="RationalWiki" class="?search=" onclick="submitThis(this)" formaction="https://rationalwiki.org/w/index.php"></td>
+		<td style="font-size:125%;"><span title="United States">🇺🇸</span></td>
+		<td><a href="https://rationalwiki.org/wiki">rationalwiki.org</a></td>
+		<td>wiki</td>
+	</tr>
+	<tr>
+		<td><img src="http://www.scholarpedia.org/w/images/6/64/Favicon.ico" height=20></td>
+		<td><input type="button" value="Scholarpedia" class="?search=" onclick="submitThis(this)" formaction="http://www.scholarpedia.org/w/index.php"></td>
+		<td style="font-size:125%;"><span title="United States">🇺🇸</span></td>
+		<td><a href="http://www.scholarpedia.org">scholarpedia.org</a></td>
+		<td>peer-reviewed</td>
+	</tr>
+	<tr>
+		<td><img src="http://en.wikipedia.org/favicon.ico" height=20></td>
+		<td><input type="button" value="Wikipedia" class="?search=" onclick="submitThis(this)" formaction="https://en.wikipedia.org/w/index.php"></td>
+		<td style="font-size:125%;"><span title="United States">🇺🇸</span></td>
+		<td><a href="https://en.wikipedia.org/wiki">en.wikipedia.org</a></td>
+		<td>wiki</td>
+	</tr>
+	</table>
+	</p>
+	
+	</form>
+
+    
+    <p style="margin-top: 50px; font-size: 80%;"><a href="../">back to search.wc.ca</a></p>
+
+        
+</body>
+</html>
