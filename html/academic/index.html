@@ -1,0 +1,102 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Searching Academic Sites</title>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="search encyclopedias">
+    <meta name="keywords" content="search encyclopedias">
+    <link rel="stylesheet" href="../stylesheet.css">
+    <link rel="icon" href="images/academic.png">
+    <script src="../script.js"></script>
+</head>
+<body>
+    <h1 id="title"><img src="images/academic.png"> Searching Academic Sites</h1>
+
+    <p style="font-size:80%"><a href="../">Search</a> > Academics</p>
+    
+    <p style="width: 700px;">Use this page to find things on academic paper search engines.</p>
+
+    <form id="theform" target="_blank">
+
+	<input name="q" id="query" type="text" style="min-width: 500px;" autofocus placeholder="Search Terms">
+
+    <table>
+    <tr><td>
+		<span style="font-size: 80%;">Default</span><br> <!-- Default because it's the first submit? -->
+		<input type="submit" value="RefSeek" class="?q=" formaction="https://www.refseek.com/search" style="font-weight: bold;"><br>&nbsp;
+	</td><td style="padding-left:25px;">
+		<span style="font-size: 80%;">Everything<br>
+		<input type="button" value="⏷ All *" onclick="submitAll('list')"><br>
+		<span style="font-size: 80%; vertical-align:top;"> * Opens a lot of tabs.</span>
+	</td></tr>
+	</table>
+        			
+	<table id="list" style="font-size:80%;">
+	<tr>
+		<td><img src="http://www.base-search.net/base_favicon.ico" height=20></td>
+		<td><input type="submit" value="BASE" class="?lookfor=" formaction="https://www.base-search.net/Search/Results"></td>
+		<td style="font-size:125%;"><span title="Germany">🇩🇪</span></td>
+		<td><a href="https://www.base-search.net">base-search.net</a></td>
+		<td>meta</td>
+	</tr>
+	<tr>
+		<td><img src="http://www.bioline.org.br/favicon.ico" height=20></td>
+		<td><input type="button" value="BioLine" class="?search_target=all_pub&search_string=" onclick="submitThis(this)" formaction="https://bioline.org.br/search"></td>
+		<td style="font-size:125%;"><span title="Brazil">🇧🇷</span></td>
+		<td><a href="https://bioline.org.br">bioline.org.br</a></td>
+		<td></td>
+	</tr>
+	<tr>
+		<td><img src="http://ideas.repec.org/favicon.ico" height=20></td>
+		<td><input type="submit" value="IDEAS" class="?q=" formaction="https://ideas.repec.org/cgi-bin/htsearch"></td>
+		<td style="font-size:125%;"><span title="United States">🇺🇸</span></td>
+		<td><a href="https://ideas.repec.org">ideas.repec.org</a></td>
+		<td>RePEc</td>
+	</tr>
+	<tr>
+		<td><img src="http://www.refseek.com/images/site-icon/favicon-32x32.png" height=20></td>
+		<td><input type="submit" value="RefSeek" class="?q=" formaction="https://www.refseek.com/search"></td>
+		<td style="font-size:125%;"><span title="United States">🇺🇸</span></td>
+		<td><a href="https://refseek.com">refseek.com</a></td>
+		<td>meta</td>
+	</tr>
+	<tr>
+		<td><img src="http://www.scholarpedia.org/w/images/6/64/Favicon.ico" height=20></td>
+		<td><input type="submit" value="Scholarpedia" class="?search=" formaction="http://www.scholarpedia.org/w/index.php"></td>
+		<td style="font-size:125%;"><span title="United States">🇺🇸</span></td>
+		<td><a href="http://www.scholarpedia.org">scholarpedia.org</a></td>
+		<td>peer-reviewed</td>
+	</tr>
+	<tr>
+		<td><img src="http://www.science.gov/images/favicon.ico" height=20></td>
+		<td><input type="button" value="Science.gov" class="?q=" onclick="submitThis(this)" formaction="https://www.science.gov/scigov/desktop/en/results.html" formmethod="post"></td>
+		<td style="font-size:125%;"><span title="United States">🇺🇸</span></td>
+		<td><a href="https://science.gov">science.gov</a></td>
+		<td></td>
+	</tr>
+	<tr>
+		<td><img src="http://link.springer.com/oscar-static/img/favicons/darwin/favicon-32x32-1435da3e82.png" height=20></td>
+		<td><input type="button" value="SpringerLink" class="?query=" onclick="submitThis(this)" formaction="https://link.springer.com/search"></td>
+		<td style="font-size:125%;"><span title="United States">🇺🇸</span></td>
+		<td><a href="https://link.springer.com">link.springer.com</a></td>
+		<td></td>
+	</tr>
+	<tr>
+		<td><img src="http://search.worldcat.org/favicons/favicon.ico" height=20></td>
+		<td><input type="submit" value="WorldCat" class="?q=" formaction="https://search.worldcat.org/search"></td>
+		<td style="font-size:125%;"><span title="United States">🇺🇸</span></td>
+		<td><a href="https://worldcat.org">worldcat.org</a></td>
+		<td></td>
+	</tr>
+	</table>
+	</p>
+	
+	</form>
+
+    
+    <p style="margin-top: 50px; font-size: 80%;"><a href="../">back to search.wc.ca</a></p>
+
+        
+</body>
+</html>
