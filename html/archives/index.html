@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Searching Internet Archives</title>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="search internet archives">
+    <meta name="keywords" content="search internet archives">
+    <link rel="stylesheet" href="../stylesheet.css">
+    <link rel="icon" href="images/archives.png">
+    <script src="../script.js"></script>
+</head>
+<body>
+    <h1 id="title"><img src="images/archives.png"> Searching Internet Archives</h1>
+
+    <p style="font-size:80%"><a href="../">Search</a> > Archives</p>
+    
+    <p style="width: 700px;">Use this page to find old webpages.</p>
+
+    <form id="theform" target="_blank">
+
+	<input name="q" id="query" type="text" style="min-width: 500px;" autofocus placeholder="Search Terms">
+
+    <table>
+    <tr><td>
+		<span style="font-size: 80%;">Default</span><br> <!-- Default because it's the first submit? -->
+		<input type="submit" value="Wayback" class="/" formaction="https://web.archive.org/web/20240000000000*" style="font-weight: bold;"><br>&nbsp;
+	</td><td style="padding-left:25px;">
+		<span style="font-size: 80%;">Everything<br>
+		<input type="button" value="⏷ All *" onclick="submitAll('list')"><br>
+		<span style="font-size: 80%; vertical-align:top;"> * Opens a lot of tabs.</span>
+	</td></tr>
+	</table>
+        			
+	<table id="list" style="font-size:80%;">
+	<tr>
+		<td><img src="http://archive.org/offshoot_assets/favicon.ico" height=20></td>
+		<td><input type="submit" value="Archive.org Wayback" class="/" formaction="https://web.archive.org/web/20240000000000*"></td>  <!-- TODO: get working -->
+		<td style="font-size:125%;"><span title="United States">🇺🇸</span></td>
+		<td><a href="https://web.archive.org">web.archive.org</a></td>
+	</tr>
+	<tr>
+		<td><img src="http://archive.today/favicon.ico" height=20></td>
+		<td><input type="button" value="Archive.today" class="?q=" onclick="submitThis(this)" formaction="https://archive.today/search"></td>  <!-- TODO: get working -->
+		<td style="font-size:125%;"><span title="Czechia">🇨🇿</span></td>
+		<td><a href="https://web.archive.org">archive.today</a></td>
+	</tr>
+	</table>
+	</p>
+	
+	</form>
+
+    
+    <p style="margin-top: 50px; font-size: 80%;"><a href="../">back to search.wc.ca</a></p>
+
+        
+</body>
+</html>
