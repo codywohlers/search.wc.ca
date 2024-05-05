@@ -4,8 +4,8 @@
     <title>Searching Academic Sites</title>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta name="description" content="search encyclopedias">
-    <meta name="keywords" content="search encyclopedias">
+    <meta name="description" content="search academic">
+    <meta name="keywords" content="search academic">
     <link rel="stylesheet" href="../stylesheet.css">
     <link rel="icon" href="images/academic.png">
     <script src="../script.js"></script>
@@ -15,7 +15,7 @@
 
     <p style="font-size:80%"><a href="../">Search</a> > Academics</p>
     
-    <p style="width: 700px;">Use this page to find things on academic paper search engines.</p>
+    <p style="width: 700px;">Use this page to find academic papers.</p>
 
     <form id="theform" target="_blank">
 
@@ -33,6 +33,13 @@
 	</table>
         			
 	<table id="list" style="font-size:80%;">
+	<tr>
+		<td><img src="http://annas-archive.org/favicon-16x16.png" height=20></td>
+		<td><input type="submit" value="Anna" class="?q=" formaction="https://annas-archive.org/search"></td>
+		<td style="font-size:125%;"><span title="Saint Kitts and Nevis">🇰🇳</span></td>
+		<td><a href="https://annas-archive.org">annas-archive.org</a></td>
+		<td>duxiu libgen sci-hub z-lib</td>
+	</tr>
 	<tr>
 		<td><img src="http://www.base-search.net/base_favicon.ico" height=20></td>
 		<td><input type="submit" value="BASE" class="?lookfor=" formaction="https://www.base-search.net/Search/Results"></td>
@@ -67,6 +74,13 @@
 		<td style="font-size:125%;"><span title="United States">🇺🇸</span></td>
 		<td><a href="http://www.scholarpedia.org">scholarpedia.org</a></td>
 		<td>peer-reviewed</td>
+	</tr>
+	<tr>
+		<td><img src="http://sci-hub.se/favicon.ico" height=20></td>
+		<td><input type="button" value="Sci-Hub" class="?request=" onclick="submitThis(this)" formaction="https://sci-hub.se/" formmethod="post"></td>  <!-- TODO send post request with request= instead of q= -->
+		<td style="font-size:125%;"><span title="Sweden">🇸🇪</span></td>
+		<td><a href="https://sci-hub.se/">sci-hub.se</a></td>
+		<td></td>
 	</tr>
 	<tr>
 		<td><img src="http://www.science.gov/images/favicon.ico" height=20></td>
